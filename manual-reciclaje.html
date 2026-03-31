@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>📖 Manual: Mi Diario de Reciclaje</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:'Nunito Sans',sans-serif; background:linear-gradient(160deg,#e8f5ee 0%,#f0f9ff 60%,#fff9e8 100%); color:#1a3a2a; padding:20px 0 50px; }
+.page { max-width:820px; margin:0 auto; padding:0 18px; }
+
+/* PORTADA */
+.cover { background:#fff; border-radius:28px; border:4px solid #1a8a4a; padding:36px 30px; text-align:center; margin-bottom:28px; box-shadow:0 10px 32px rgba(26,138,74,.15); }
+.cover-logo { font-size:4rem; margin-bottom:10px; }
+.cover-title { font-family:'Nunito',sans-serif; font-size:2rem; font-weight:900; color:#1a8a4a; line-height:1.1; margin-bottom:8px; }
+.cover-sub { font-size:1rem; color:#4a7060; font-weight:700; }
+.cover-badge { display:inline-block; margin-top:14px; background:#e8f5ee; border:2px solid #c8e6d4; border-radius:999px; padding:6px 20px; font-size:.88rem; font-weight:900; color:#1a8a4a; }
+
+/* SECCIÓN */
+.section { background:#fff; border-radius:24px; border:2.5px solid #daeee3; box-shadow:0 4px 16px rgba(0,0,0,.06); margin-bottom:22px; overflow:hidden; }
+.section-head { display:flex; align-items:center; gap:14px; padding:16px 22px; border-bottom:2.5px solid #daeee3; }
+.step-num { width:44px; height:44px; border-radius:14px; background:linear-gradient(135deg,#1a8a4a,#22c55e); color:#fff; font-family:'Nunito',sans-serif; font-size:1.4rem; font-weight:900; display:flex; align-items:center; justify-content:center; flex-shrink:0; box-shadow:0 4px 10px rgba(0,120,60,.25); }
+.section-title { font-family:'Nunito',sans-serif; font-size:1.15rem; font-weight:900; color:#1a3a2a; }
+.section-body { padding:20px 22px; }
+
+/* PASOS */
+.steps { display:flex; flex-direction:column; gap:14px; }
+.step { display:flex; align-items:flex-start; gap:14px; padding:14px 16px; border-radius:16px; border:2px solid; }
+.step-ico { font-size:1.8rem; flex-shrink:0; margin-top:2px; }
+.step-txt strong { font-family:'Nunito',sans-serif; font-weight:900; font-size:.95rem; display:block; margin-bottom:3px; }
+.step-txt span { font-size:.85rem; font-weight:600; color:#4a7060; line-height:1.45; }
+
+/* CATEGORIAS */
+.cat-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:10px; margin-top:4px; }
+.cat-card { border-radius:16px; border:2.5px solid; padding:12px 6px; text-align:center; }
+.cat-em { font-size:2rem; display:block; margin-bottom:5px; }
+.cat-name { font-family:'Nunito',sans-serif; font-size:.8rem; font-weight:900; }
+.cat-ej { font-size:.72rem; color:#4a7060; font-weight:700; margin-top:3px; line-height:1.3; }
+
+/* TABS */
+.tabs-explain { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.tab-card { border-radius:16px; border:2.5px solid #daeee3; padding:14px 16px; display:flex; gap:12px; align-items:flex-start; }
+.tab-ico { font-size:1.6rem; flex-shrink:0; }
+.tab-name { font-family:'Nunito',sans-serif; font-size:.9rem; font-weight:900; color:#1a8a4a; margin-bottom:4px; }
+.tab-desc { font-size:.8rem; font-weight:700; color:#4a7060; line-height:1.4; }
+
+/* TIPS */
+.tip-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+.tip { border-radius:14px; padding:12px 14px; border:2px solid; display:flex; gap:10px; align-items:center; }
+.tip-ico { font-size:1.5rem; flex-shrink:0; }
+.tip-txt { font-size:.82rem; font-weight:700; color:#1a3a2a; line-height:1.4; }
+
+/* PRINT */
+@media print {
+  * { -webkit-print-color-adjust:exact!important; print-color-adjust:exact!important; }
+  body { background:#fff; padding:10px 0; }
+  .section, .cover { box-shadow:none; break-inside:avoid; }
+  .cat-grid { grid-template-columns:repeat(5,1fr); }
+  .tabs-explain, .tip-grid { grid-template-columns:1fr 1fr; }
+}
+@media(max-width:600px){
+  .cat-grid{grid-template-columns:repeat(3,1fr);}
+  .tabs-explain,.tip-grid{grid-template-columns:1fr;}
+}
+
+.print-btn { display:block; margin:0 auto 24px; padding:12px 28px; border-radius:999px; background:#1a8a4a; color:#fff; font-family:'Nunito',sans-serif; font-size:.95rem; font-weight:900; border:none; cursor:pointer; box-shadow:0 5px 14px rgba(0,120,60,.25); }
+.print-btn:hover { background:#127038; }
+@media print { .print-btn { display:none; } }
+</style>
+</head>
+<body>
+<div class="page">
+
+<button class="print-btn" onclick="window.print()">🖨️ Imprimir este manual</button>
+
+<!-- PORTADA -->
+<div class="cover">
+  <div class="cover-logo">♻️</div>
+  <div class="cover-title">📖 ¿Cómo usar<br>Mi Diario de Reciclaje?</div>
+  <div class="cover-sub">¡Una guía fácil para guardianes del planeta!</div>
+  <div class="cover-badge">🌱 Grado 3° · Matemáticas</div>
+</div>
+
+<!-- PASO 1 -->
+<div class="section">
+  <div class="section-head">
+    <div class="step-num">1</div>
+    <div class="section-title">¿Dónde encontraste el residuo? 📍</div>
+  </div>
+  <div class="section-body">
+    <div class="steps">
+      <div class="step" style="background:#f0fdf4;border-color:#bbf7d0">
+        <span class="step-ico">🏠</span>
+        <div class="step-txt"><strong>Mi Casa</strong><span>Residuos que encontraste en tu hogar: cocina, sala, patio de la casa.</span></div>
+      </div>
+      <div class="step" style="background:#eff6ff;border-color:#bfdbfe">
+        <span class="step-ico">🏫</span>
+        <div class="step-txt"><strong>El Salón</strong><span>Lo que encuentras dentro del salón de clase: papeles, empaques, colores viejos.</span></div>
+      </div>
+      <div class="step" style="background:#fefce8;border-color:#fde68a">
+        <span class="step-ico">🌳</span>
+        <div class="step-txt"><strong>El Patio</strong><span>Residuos que ves en el descanso o en el jardín del colegio.</span></div>
+      </div>
+      <div class="step" style="background:#fff7ed;border-color:#fed7aa">
+        <span class="step-ico">🍎</span>
+        <div class="step-txt"><strong>Cafetería</strong><span>Empaques, cáscaras o envases que quedan después de comer.</span></div>
+      </div>
+    </div>
+    <p style="margin-top:14px;font-size:.85rem;font-weight:700;color:#4a7060;background:#e8f5ee;padding:10px 14px;border-radius:12px;">👉 <strong>¿Cómo hacerlo?</strong> Haz clic en el botón del lugar donde lo encontraste. El botón se pondrá <strong style="color:#1a8a4a">verde oscuro</strong> cuando esté seleccionado.</p>
+  </div>
+</div>
+
+<!-- PASO 2 -->
+<div class="section">
+  <div class="section-head">
+    <div class="step-num">2</div>
+    <div class="section-title">¿Cómo se llama el objeto? ✏️</div>
+  </div>
+  <div class="section-body">
+    <div class="step" style="background:#f8fdf9;border-color:#c8e6d4">
+      <span class="step-ico">✏️</span>
+      <div class="step-txt"><strong>Escribe el nombre del objeto en el cuadro de texto</strong><span>Por ejemplo: <em>"botella de agua"</em>, <em>"cáscara de manzana"</em>, <em>"periódico"</em>, <em>"lata de atún"</em>…<br>¡Sé específico! Mientras más detallado, mejor para el diario.</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- PASO 3 -->
+<div class="section">
+  <div class="section-head">
+    <div class="step-num">3</div>
+    <div class="section-title">¿De qué material es? 🧱</div>
+  </div>
+  <div class="section-body">
+    <div class="cat-grid">
+      <div class="cat-card" style="background:#eff6ff;border-color:#bfdbfe">
+        <span class="cat-em">📄</span>
+        <div class="cat-name" style="color:#3b82f6">Papel</div>
+        <div class="cat-ej">Periódicos, cartón, cuadernos, cajas</div>
+      </div>
+      <div class="cat-card" style="background:#fffbeb;border-color:#fde68a">
+        <span class="cat-em">🧴</span>
+        <div class="cat-name" style="color:#d97706">Plástico</div>
+        <div class="cat-ej">Botellas, bolsas, pitillos, empaques</div>
+      </div>
+      <div class="cat-card" style="background:#f0fdf4;border-color:#bbf7d0">
+        <span class="cat-em">🍌</span>
+        <div class="cat-name" style="color:#10b981">Orgánico</div>
+        <div class="cat-ej">Cáscaras, restos de comida, hojas</div>
+      </div>
+      <div class="cat-card" style="background:#f8fafc;border-color:#e2e8f0">
+        <span class="cat-em">🥫</span>
+        <div class="cat-name" style="color:#64748b">Metal</div>
+        <div class="cat-ej">Latas, tapas, alambres, clips</div>
+      </div>
+      <div class="cat-card" style="background:#ecfeff;border-color:#a5f3fc">
+        <span class="cat-em">🍾</span>
+        <div class="cat-name" style="color:#06b6d4">Botella</div>
+        <div class="cat-ej">Botellas y frascos de vidrio</div>
+      </div>
+    </div>
+    <p style="margin-top:14px;font-size:.85rem;font-weight:700;color:#4a7060;background:#e8f5ee;padding:10px 14px;border-radius:12px;">👉 Haz clic en el dibujo que corresponde. El ícono seleccionado saltará hacia arriba para indicar que está activo.</p>
+  </div>
+</div>
+
+<!-- PASO 4 -->
+<div class="section">
+  <div class="section-head">
+    <div class="step-num">4</div>
+    <div class="section-title">¿Cuántos hay? 🔢</div>
+  </div>
+  <div class="section-body">
+    <div class="steps">
+      <div class="step" style="background:#f8fdf9;border-color:#c8e6d4">
+        <span class="step-ico">➕</span>
+        <div class="step-txt"><strong>Usa los botones + y −</strong><span>Presiona <strong>+</strong> para aumentar la cantidad y <strong>−</strong> para disminuirla. El número del centro muestra cuántos llevas. Puedes registrar entre 1 y 20 objetos a la vez.</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PASO 5 -->
+<div class="section">
+  <div class="section-head">
+    <div class="step-num">5</div>
+    <div class="section-title">¡Agregar al Diario! 🚀</div>
+  </div>
+  <div class="section-body">
+    <div class="step" style="background:#f0fdf4;border-color:#bbf7d0">
+      <span class="step-ico">🚀</span>
+      <div class="step-txt"><strong>Haz clic en el botón verde grande "¡Agregar a mi Diario!"</strong><span>Aparecerá un globo en la parte de abajo con un <strong>dato curioso</strong> sobre ese tipo de residuo. ¡Léelo y aprende algo nuevo! 💡<br>Los contadores de arriba se actualizarán solos.</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- PESTAÑAS -->
+<div class="section">
+  <div class="section-head">
+    <div class="step-num">6</div>
+    <div class="section-title">Explora las pestañas 🗂️</div>
+  </div>
+  <div class="section-body">
+    <div class="tabs-explain">
+      <div class="tab-card">
+        <div class="tab-ico">📊</div>
+        <div><div class="tab-name">Pictograma</div><div class="tab-desc">Ve cuántos residuos hay de cada tipo usando íconos. Puedes cambiar la escala (1 ícono = 1, 2 ó 5 objetos).</div></div>
+      </div>
+      <div class="tab-card">
+        <div class="tab-ico">📈</div>
+        <div><div class="tab-name">Gráfico de Barras</div><div class="tab-desc">Compara visualmente las cantidades con barras de colores. Puedes verlas verticales u horizontales.</div></div>
+      </div>
+      <div class="tab-card">
+        <div class="tab-ico">📜</div>
+        <div><div class="tab-name">Mis Registros</div><div class="tab-desc">Lista completa de todo lo que has registrado. Puedes borrar un objeto tocando la ✕ a su lado.</div></div>
+      </div>
+      <div class="tab-card">
+        <div class="tab-ico">➕</div>
+        <div><div class="tab-name">Agregar Residuo</div><div class="tab-desc">La pantalla principal donde registras nuevos objetos. ¡Empieza siempre aquí!</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BOTONES SUPERIORES -->
+<div class="section">
+  <div class="section-head">
+    <div class="step-num">7</div>
+    <div class="section-title">Botones del encabezado 🖱️</div>
+  </div>
+  <div class="section-body">
+    <div class="tip-grid">
+      <div class="tip" style="background:#f8fdf9;border-color:#c8e6d4">
+        <span class="tip-ico">🖨️</span>
+        <div class="tip-txt"><strong>Imprimir:</strong> Imprime el pictograma y el gráfico de barras con todos sus colores.</div>
+      </div>
+      <div class="tip" style="background:#eff6ff;border-color:#bfdbfe">
+        <span class="tip-ico">💾</span>
+        <div class="tip-txt"><strong>Guardar CSV:</strong> Descarga una tabla con todos tus registros para abrirla en Excel.</div>
+      </div>
+      <div class="tip" style="background:#fef2f2;border-color:#fecaca">
+        <span class="tip-ico">🗑️</span>
+        <div class="tip-txt"><strong>Borrar Todo:</strong> Elimina todos los registros. Pedirá confirmación antes de borrar.</div>
+      </div>
+      <div class="tip" style="background:#fffbeb;border-color:#fde68a">
+        <span class="tip-ico">💡</span>
+        <div class="tip-txt"><strong>Dato curioso:</strong> Cada vez que agregas un residuo aparece un mensaje con información del planeta.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- RECUERDA -->
+<div class="section" style="border-color:#fde68a">
+  <div class="section-head" style="background:#fffbeb;border-bottom-color:#fde68a">
+    <div class="step-num" style="background:linear-gradient(135deg,#f59e0b,#fbbf24)">⭐</div>
+    <div class="section-title">¡Recuerda, Guardián del Planeta!</div>
+  </div>
+  <div class="section-body">
+    <div class="steps">
+      <div class="step" style="background:#f0fdf4;border-color:#bbf7d0"><span class="step-ico">🌿</span><div class="step-txt"><strong>Reciclar es un súper poder</strong><span>Cada objeto que clasificas correctamente ayuda a reducir la basura y protege la naturaleza.</span></div></div>
+      <div class="step" style="background:#eff6ff;border-color:#bfdbfe"><span class="step-ico">📊</span><div class="step-txt"><strong>Los gráficos son tus herramientas</strong><span>El pictograma y el diagrama de barras te ayudan a contar, comparar y entender la información.</span></div></div>
+      <div class="step" style="background:#fefce8;border-color:#fde68a"><span class="step-ico">🤝</span><div class="step-txt"><strong>Trabaja en equipo</strong><span>Puedes combinar tus datos con los de tus compañeros para ver cuántos residuos recoge todo el salón.</span></div></div>
+    </div>
+  </div>
+</div>
+
+<div style="text-align:center;margin-top:10px;font-size:.8rem;color:#a8c8b8;font-weight:700;">
+  🌍 Mi Diario de Reciclaje · Grado 3° · Matemáticas
+</div>
+
+</div>
+<script>
+// Nada que hacer, el botón de imprimir está inline
+</script>
+</body>
+</html>
